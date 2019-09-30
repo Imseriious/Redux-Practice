@@ -30,7 +30,7 @@ class Counter extends Component {
         return ( //We use the props comming from redux (ctr)
             <div> 
                 <CounterOutput value={this.props.ctr} /> 
-                <CounterControl label="Increment" clicked={() => this.counterChangedHandler('inc')} />
+                <CounterControl label="Increment" clicked={this.props.onIncrementCounter} /> 
                 <CounterControl label="Decrement" clicked={() => this.counterChangedHandler('dec')} />
                 <CounterControl label="Add 5" clicked={() => this.counterChangedHandler('add', 5)} />
                 <CounterControl label="Subtract 5" clicked={() => this.counterChangedHandler('sub', 5)} />
@@ -45,4 +45,12 @@ const mapStateToProps = state => { //We get props from the global state (reducer
     };
 };
 
-export default connect(mapStateToProps)(Counter); //We connect our component to the global state
+const mapDispatchToProps = dispacth => {
+    return {
+        onIncrementCounter: () => dispacth({
+            type: "INCREMENT"
+        })
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Counter); //We connect our component to the global state
