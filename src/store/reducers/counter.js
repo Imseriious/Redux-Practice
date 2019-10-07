@@ -1,4 +1,4 @@
-import * as actionType from '../actions'; //We create an Object "actionType"
+import * as actionType from '../actions/actions'; //We create an Object "actionType"
 
 const initialState = {
     counter: 0
