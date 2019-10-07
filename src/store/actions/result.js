@@ -15,9 +15,9 @@ export const storeResult = (result) => {
     }
 };
 
-export const deleteResult = (id) => {
+export const deleteResult = (elmId) => {
     return {
         type: actionTypes.DELETE_RESULT,
-        id: id
+        id: elmId
     };
 };
